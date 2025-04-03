@@ -48,7 +48,6 @@ export const createRuntime = async function({ctx, key, onRedraw}: {
         images = state.get_imgs().map(e=>{
           const img = new Image();
           img.src = URL.createObjectURL(new Blob([e.get()],{type:"image/png"}));
-          console.log(img.src)
           return img;
         })
       }
