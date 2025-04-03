@@ -10,7 +10,7 @@
     "typescript": "^5"
   },
   "scripts": {
-    "hot": "bun hot.ts",
-    "build": "bun build.ts"
+    "hot": "bge run",
+    "build": "bge build"
   }
 }
