@@ -4,6 +4,8 @@ import { resource } from "./resource.js";
 import { draw } from "./piece/draw.js";
 import { copy } from "./utils/copy.js";
 import { drawText } from "./utils/text.js";
+import { px, py } from "./piece/data.js";
+import { process } from "./piece/process.js";
 
 export function main(){
     copy($("graph"), $("glen"), 0xf000n);
@@ -30,7 +32,10 @@ export function main(){
     $("set*", 0xa10cn, 13);
     $("set*", 0xa10dn, 14);
     $("set*", 0xa10en, 15);
+    px = 3;
+    py = 3;
     while(1){
+        process();
         draw();
     }
     return;

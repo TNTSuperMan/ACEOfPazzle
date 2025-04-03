@@ -1,3 +1,6 @@
+export let px;
+export let py;
+
 export function Index(x, y){
-    return y + x * 4;
+    return x + y * 4;
 }

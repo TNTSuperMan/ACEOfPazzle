@@ -1,10 +1,11 @@
 import "../../macro";
+import { Index, px, py } from "./data.js";
 
 export function draw(){
     let addr = 0n;
     addr = 0xa100n;
     while(addr.bottom != 16){
-        if($("get*", addr) != 0){
+        if(addr.bottom != Index(px, py)){
             rect(
                 (addr.bottom % 4) * 32 + 2,
                 (addr.bottom / 4) * 32 + 2,
