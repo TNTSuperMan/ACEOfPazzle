@@ -17,7 +17,7 @@ export default defineConfig({
   },
   server: {
     fs: {
-      allow: ["../../ACEGame/bge-wasm/pkg", "."]
+      allow: ["../../bge-wasm/pkg", "."]
     }
   }
 })
