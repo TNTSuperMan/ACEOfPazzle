@@ -4,6 +4,7 @@ import { Index, px, py } from "./data.js";
 export function draw(){
     let addr = 0n;
     addr = 0xa100n;
+    rect(0, 0, 128, 128, $("color", 3, 3, 3));
     while(addr.bottom != 16){
         if(addr.bottom != Index(px, py)){
             rect(
