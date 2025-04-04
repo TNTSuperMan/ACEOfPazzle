@@ -1,7 +1,6 @@
 {
   "name": "aceofpazzle",
   "type": "module",
-  "private": true,
   "devDependencies": {
     "@types/bun": "latest",
     "bge-compiler": "^0.0.32"
@@ -12,5 +11,7 @@
   "scripts": {
     "hot": "bge run",
     "build": "bge build"
-  }
+  },
+  "license": "MIT",
+  "author": "TNTSuperMan"
 }

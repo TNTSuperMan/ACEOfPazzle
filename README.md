@@ -1,4 +1,5 @@
 # aceofpazzle
+BinGameEngineゲームのサンプルです。
 ## Setup
 ```bash
 $ bun i
