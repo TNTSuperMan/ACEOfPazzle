@@ -13,14 +13,14 @@ const main = async () => {
     const runtime = await createRuntime({
         ctx,
         key: ()=>parseInt([
-            state.keys.has("KeyW"),
-            state.keys.has("KeyS"),
-            state.keys.has("KeyA"),
-            state.keys.has("KeyD"),
-            state.keys.has("Comma"),
-            state.keys.has("Period"),
-            state.keys.has("KeyI"),
-            state.keys.has("KeyJ"),
+            state.keys.has("ArrowUp"),
+            state.keys.has("ArrowDown"),
+            state.keys.has("ArrowLeft"),
+            state.keys.has("ArrowRight"),
+            state.keys.has("KeyV"),
+            state.keys.has("KeyC"),
+            state.keys.has("KeyZ"),
+            state.keys.has("KeyX"),
           ].map(e=>e?"1":"0").join(""), 2),
         onRedraw: ()=>{
             try{
