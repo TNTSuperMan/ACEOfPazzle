@@ -1,6 +1,6 @@
 
 import init, { Runtime as BGERuntime } from "bge-wasm";
-import rawROM from "./rom.bin?url"
+import rawROM from "../../dist/out.bin?url"
 
 const initP = init().then(e=>e.init_panic_fook());
 
