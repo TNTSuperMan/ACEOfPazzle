@@ -10,7 +10,7 @@
   },
   "scripts": {
     "hot": "bge run",
-    "build": "bge build"
+    "build": "bge build && cp ./dist/out.bin ./runtime/public/rom.bin"
   },
   "license": "MIT",
   "author": "TNTSuperMan"

@@ -1,10 +1,9 @@
 
 import init, { Runtime as BGERuntime } from "bge-wasm";
-import rawROM from "../../../dist/out.bin?url"
 
 const initP = init().then(e=>e.init_panic_fook());
 
-const rom = fetch(rawROM).then(e=>e.arrayBuffer()).then(e=>new Uint8Array(e));
+const rom = fetch("./rom.bin").then(e=>e.arrayBuffer()).then(e=>new Uint8Array(e));
 
 export type Runtime = {
   EmulateFrame: () => string | void,

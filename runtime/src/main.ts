@@ -1,5 +1,4 @@
 import { start } from "./runtime/dom";
-import credit from "./licenses.json";
 
 const main = () => {
     document.getElementById("start")!
@@ -8,12 +7,12 @@ const main = () => {
             start();
         });
     document.getElementById("credit")!
-        .addEventListener("click", ()=>{
+        .addEventListener("click", async()=>{
             document.getElementById("main")?.remove();
             const ul = document.querySelector("#cbox ul")!;
             const cbox = document.getElementById("cbox")!;
             cbox.style.display = "block";
-            Object.entries<string>(credit).forEach(e=>{
+            Object.entries<string>((await import("./licenses.json")).default).forEach(e=>{
                 const title = document.createElement("h2");
                 title.id = e[0];
                 const license = document.createElement("pre");
