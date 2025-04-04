@@ -4,6 +4,8 @@
     "target": "esnext",
     "lib": ["esnext", "dom"],
     "moduleResolution": "node",
-    "strict": true
+    "strict": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
   }
 }

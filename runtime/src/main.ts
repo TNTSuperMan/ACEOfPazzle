@@ -1,41 +1,33 @@
-import { useLibkey } from "libkey";
-import { createRuntime } from "./runtime";
+import { start } from "./runtime/dom";
+import credit from "./licenses.json";
 
-const main = async () => {
-    const canvas = document.querySelector("canvas");
-    if(!canvas) return alert("Failed to find canvas element");
+const main = () => {
+    document.getElementById("start")!
+        .addEventListener("click", ()=>{
+            document.getElementById("main")?.remove();
+            start();
+        });
+    document.getElementById("credit")!
+        .addEventListener("click", ()=>{
+            document.getElementById("main")?.remove();
+            const ul = document.querySelector("#cbox ul")!;
+            const cbox = document.getElementById("cbox")!;
+            cbox.style.display = "block";
+            Object.entries<string>(credit).forEach(e=>{
+                const title = document.createElement("h2");
+                title.id = e[0];
+                const license = document.createElement("pre");
+                license.textContent = e[1];
+                cbox.append(title, license);
 
-    const ctx = canvas.getContext("2d");
-    if(!ctx) return alert("Failed to get 2d canvas context");
-
-    const { state } = useLibkey(document.body);
-
-    const runtime = await createRuntime({
-        ctx,
-        key: ()=>parseInt([
-            state.keys.has("ArrowUp"),
-            state.keys.has("ArrowDown"),
-            state.keys.has("ArrowLeft"),
-            state.keys.has("ArrowRight"),
-            state.keys.has("KeyV"),
-            state.keys.has("KeyC"),
-            state.keys.has("KeyZ"),
-            state.keys.has("KeyX"),
-          ].map(e=>e?"1":"0").join(""), 2),
-        onRedraw: ()=>{
-            try{
-                const err = runtime.EmulateFrame();
-                if(err)
-                    alert("GameEngineError: " + err);
-            }catch(e){
-                if(e instanceof Error)
-                    alert(`JavaScript Error ${e.name}: ${e.message}`);
-            }
-        },
-        saveSRAM(){},
-        loadSRAM(){return new Uint8Array}
-    });
-    runtime.EmulateFrame();
+                const link = document.createElement("a");
+                link.href = "#" + e[0];
+                link.textContent = e[0];
+                const li = document.createElement("li");
+                li.append(link);
+                ul.append(li);
+            })
+        });
 }
 document.readyState == "loading" ?
     window.addEventListener("DOMContentLoaded", main) :

@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACE of Pazzle</title>
     <style>
-      :root{
+      html, body{ height: 100%; margin: 0; }
+      #box{
         display: flex;
+        flex-direction: column;
         align-items: center;
         align-content: center;
         justify-items: center;
         justify-content: center;
+        text-align: center;
         width: 100%;
         height: 100%;
         background: url("https://tntsuperman.pages.dev/chikuwa_back.png");
@@ -20,10 +23,53 @@
         width: 256px;
         height: 256px;
       }
+      table{
+        background: white;
+      }
+      #main{
+        background: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+      }
+      #main + canvas{
+        display: none;
+      }
+      #cbox{
+        margin: 20px;
+      }
+      #cbox h2::before{
+        content: attr(id);
+      }
+      #cbox pre{
+        white-space: pre-wrap;
+      }
     </style>
   </head>
   <body>
-    <canvas width="128" height="128"></canvas>
+    <div id="cbox" style="display:none">
+      <h1>クレジット</h1>
+      <button onclick="location.reload()">戻る</button>
+      <h2>リスト</h2>
+      <ul></ul>
+    </div>
+    <div id="box">
+      <div id="main">
+        <h1>ACE of Pazzle</h1>
+        <p>BinGameEngineのテスト用ゲーム。</p>
+        <button id="start">始める</button>
+        <a href="https://tntsuperman.github.io/PazzleGame/" target="_blank"><button>オリジナル</button></a>
+        <button id="credit">クレジット</button>
+        <h3>キーボードレイアウト</h3>
+        <table border>
+          <tr><td>A</td><td>Z</td></tr>
+          <tr><td>B</td><td>X</td></tr>
+          <tr><td>Start</td><td>C</td></tr>
+          <tr><td>Select</td><td>V</td></tr>
+          <tr><td>上下左右</td><td>矢印キー</td></tr>
+        </table>
+        <small>&copy; TNTSuperMan 2025 Provided under MIT License</small>
+      </div>
+      <canvas width="128" height="128"></canvas>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
