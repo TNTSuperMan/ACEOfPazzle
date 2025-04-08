@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "module": "nodenext",
+    "module": "esnext",
     "target": "esnext",
     "lib": ["esnext", "dom"],
-    "moduleResolution": "nodenext",
+    "moduleResolution": "bundler",
     "strict": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true
