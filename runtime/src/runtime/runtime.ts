@@ -1,5 +1,5 @@
 
-import init, { Runtime as BGERuntime } from "bge-wasm";
+import init, { Runtime as BGERuntime } from "bge-wasm/web";
 
 const initP = init().then(e=>e.init_panic_fook());
 

@@ -17,7 +17,7 @@ export default defineConfig({
   },
   server: {
     fs: {
-      allow: ["../../bge-wasm/pkg", ".", "../dist"]
+      allow: [".", "../dist"]
     }
   }
 })
