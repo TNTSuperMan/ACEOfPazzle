@@ -1,9 +1,12 @@
 
 import init, { Runtime as BGERuntime } from "bge-wasm/web";
+import wasm from "bge-wasm/wasm";
+//@ts-ignore
+import rompath from "../../../dist/out.bin";
 
-const initP = init().then(e=>e.init_panic_fook());
+const initP = init(wasm as any).then(e=>e.init_panic_fook());
 
-const rom = fetch("./rom.bin").then(e=>e.arrayBuffer()).then(e=>new Uint8Array(e));
+const rom = fetch(rompath).then(e=>e.arrayBuffer()).then(e=>new Uint8Array(e));
 
 export type Runtime = {
   EmulateFrame: () => string | void,
