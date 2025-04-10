@@ -5,41 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "bun index.html",
-    "build": "bun build --minify --outdir=dist/html index.html",
-    "buildbin": "electron-builder",
-    "electron": "electron index.js"
-  },
-  "build": {
-    "files": [
-      "dist/html/*",
-      "index.js",
-      "package.json"
-    ],
-    "appId": "com.tntsuperman.acegame",
-    "win": {
-      "target": ["nsis", "zip"]
-    },
-    "mac": {
-      "target": ["dmg", "zip"]
-    },
-    "linux": {
-      "target": ["AppImage", "deb", "zip"]
-    },
-    "directories": {
-      "output": "dist"
-    }
+    "build": "bun build --minify --outdir=dist/html index.html"
   },
   "dependencies": {
-    "bge-wasm": "^0.0.4",
+    "bge-wasm": "^0.0.6",
     "libkey": "0.0.5"
   },
   "devDependencies": {
     "@types/bun": "^1.2.4",
     "@types/license-checker": "^25.0.6",
     "@types/node": "^22.10.2",
-    "electron": "^34.0.0",
-    "electron-builder": "^25.1.8",
-    "eslint": "^9.14.0",
     "license-checker": "^25.0.1",
     "typescript": "~5.6.3"
   }
